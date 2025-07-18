@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-sans text-gray-800 bg-white;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-orange-500 font-medium px-6 py-3 rounded-full border border-orange-500 transition-colors;
+  }
+}
