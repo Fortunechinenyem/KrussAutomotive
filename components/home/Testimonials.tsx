@@ -53,7 +53,7 @@ const Testimonials = () => {
                     key={i}
                     className={`w-5 h-5 ${
                       i < testimonial.rating
-                        ? "text-orange-400"
+                        ? "text-[#7f870c]"
                         : "text-gray-300"
                     }`}
                     fill="currentColor"
@@ -67,7 +67,7 @@ const Testimonials = () => {
                 "{testimonial.content}"
               </p>
               <div className="flex items-center">
-                <div className="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                <div className="bg-orange-100 text-[#7f870c] rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>

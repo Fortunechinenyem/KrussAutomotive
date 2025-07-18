@@ -23,7 +23,7 @@ const ServicesGrid = () => {
             >
               <div className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-orange-100 text-orange-500">
+                  <div className="p-3 rounded-lg  text-[#2395a9]">
                     <service.icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-semibold ml-4">
@@ -33,7 +33,7 @@ const ServicesGrid = () => {
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <Link
                   href={`/services#${service.id}`}
-                  className="text-orange-500 hover:text-orange-600 font-medium flex items-center"
+                  className="text-[#2395a9] hover:text-orange-600 font-medium flex items-center"
                 >
                   Learn more
                   <svg
@@ -56,7 +56,7 @@ const ServicesGrid = () => {
         </div>
 
         {services.some((s) => s.cng) && (
-          <div className="mt-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-8 text-white">
+          <div className="mt-16 bg-gradient-to-r from-[#2395a9] to-[#7f870c] rounded-xl p-8 text-white">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-2/3 mb-6 md:mb-0">
                 <h3 className="text-2xl font-bold mb-2">

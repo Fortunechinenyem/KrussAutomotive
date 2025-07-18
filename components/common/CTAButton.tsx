@@ -16,17 +16,36 @@ const CTAButton = ({
   const baseClasses =
     "inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-colors duration-200";
 
-  const variantClasses = {
-    primary: "bg-orange-500 hover:bg-orange-600 text-white",
-    secondary: "bg-white hover:bg-gray-100 text-orange-500",
-    outline:
-      "border border-white hover:bg-white hover:text-orange-500 text-white",
+  const variantStyles = {
+    primary: {
+      backgroundColor: "#2cbbd4",
+      color: "#ffffff",
+      hover: "hover:bg-[#2395a9]",
+    },
+    secondary: {
+      backgroundColor: "#7f870c",
+      color: "#ffffff",
+      hover: "hover:bg-[#666c0a]",
+    },
+    outline: {
+      backgroundColor: "transparent",
+      color: "#ffffff",
+      border: "2px solid #ffffff",
+      hover: "hover:bg-white hover:text-[#0c4187]",
+    },
   };
 
   return (
     <Link
       href={href}
-      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+      className={`${baseClasses} ${variantStyles[variant].hover} ${className}`}
+      style={{
+        backgroundColor: variantStyles[variant].backgroundColor,
+        color: variantStyles[variant].color,
+        ...(variant === "outline"
+          ? { border: variantStyles[variant].border }
+          : {}),
+      }}
     >
       {children}
       <svg
@@ -34,7 +53,6 @@ const CTAButton = ({
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           strokeLinecap="round"

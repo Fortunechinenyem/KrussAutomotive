@@ -31,7 +31,7 @@ const Navbar = () => {
 
           <Link
             href="/book-appointment"
-            className="bg-white bg-opacity-10 px-6 py-2 rounded-full text-white border border-white border-opacity-20 hover:bg-opacity-20 transition-all"
+            className="bg-white bg-opacity-10 px-6 py-2 rounded-full text-[#7f870c] border border-white border-opacity-20 hover:bg-opacity-20 transition-all"
           >
             Book Now
           </Link>

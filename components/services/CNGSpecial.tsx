@@ -21,7 +21,10 @@ const CNGSpecial = () => {
   ];
 
   return (
-    <div className="mt-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-8 text-white">
+    <div
+      className="mt-16 rounded-xl p-8 text-white"
+      style={{ background: "linear-gradient(to right, #7f870c, #666c0a)" }}
+    >
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:w-2/3 mb-6 md:mb-0">
           <h3 className="text-2xl font-bold mb-4">Specialized CNG Services</h3>
