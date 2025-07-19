@@ -5,8 +5,17 @@ import {
   FaCarBattery,
   FaCarCrash,
 } from "react-icons/fa";
+import { ComponentType, SVGProps } from "react";
 
-export const services = [
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  cng: boolean;
+}
+
+export const services: Service[] = [
   {
     id: "preventive",
     title: "Preventive Maintenance",

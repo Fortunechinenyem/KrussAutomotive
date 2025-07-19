@@ -14,16 +14,24 @@ export async function generateStaticParams() {
     id: service.id,
   }));
 }
+type PageParams = {
+  id: string;
+};
 
-export default function ServiceDetail({ params }: { params: { id: string } }) {
+type ServiceDetailType = {
+  features: string[];
+  benefits: string[];
+  icon: React.ReactNode;
+};
+
+export default function ServiceDetail({ params }: { params: PageParams }) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
     notFound();
   }
-  const serviceId = service.id as keyof typeof serviceDetails;
 
-  const serviceDetails = {
+  const serviceDetails: Record<string, ServiceDetailType> = {
     preventive: {
       features: [
         "Regular oil and filter changes",
@@ -134,7 +142,11 @@ export default function ServiceDetail({ params }: { params: { id: string } }) {
     },
   };
 
-  const detail = serviceDetails[serviceId];
+  const detail = serviceDetails[service.id];
+
+  if (!detail) {
+    notFound();
+  }
 
   return (
     <div className="py-20 bg-white">
