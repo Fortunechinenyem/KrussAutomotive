@@ -1,6 +1,5 @@
 import { services } from "@/lib/constants";
 import { notFound } from "next/navigation";
-
 import {
   FaTools,
   FaCarBattery,
@@ -10,14 +9,28 @@ import {
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
 
-export default function ServiceDetail({ params }: { params: { id: string } }) {
+interface ServiceDetail {
+  features: string[];
+  benefits: string[];
+  icon: React.ReactNode;
+}
+
+interface ServiceDetails {
+  [key: string]: ServiceDetail;
+}
+
+export default function ServiceDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
     notFound();
   }
 
-  const serviceDetails = {
+  const serviceDetails: ServiceDetails = {
     preventive: {
       features: [
         "Regular oil and filter changes",
@@ -128,7 +141,7 @@ export default function ServiceDetail({ params }: { params: { id: string } }) {
     },
   };
 
-  const detail = serviceDetails[service.id];
+  const detail = serviceDetails[service.id as keyof typeof serviceDetails];
 
   return (
     <div className="py-20 bg-white">
