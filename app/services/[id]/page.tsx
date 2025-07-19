@@ -1,5 +1,6 @@
 import { services } from "@/lib/constants";
 import { notFound } from "next/navigation";
+
 import {
   FaTools,
   FaCarBattery,
@@ -9,15 +10,7 @@ import {
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
 
-type Params = {
-  id: string;
-};
-
-type ServiceDetailProps = {
-  params: Params;
-};
-
-export default function ServiceDetail({ params }: ServiceDetailProps) {
+export default function ServiceDetail({ params }: { params: { id: string } }) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
@@ -135,7 +128,7 @@ export default function ServiceDetail({ params }: ServiceDetailProps) {
     },
   };
 
-  const detail = serviceDetails[service.id as keyof typeof serviceDetails];
+  const detail = serviceDetails[service.id];
 
   return (
     <div className="py-20 bg-white">
