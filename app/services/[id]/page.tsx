@@ -9,17 +9,15 @@ import {
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
 
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    id: service.id,
-  }));
-}
-
 type Params = {
   id: string;
 };
 
-export default function ServiceDetail({ params }: { params: Params }) {
+type ServiceDetailProps = {
+  params: Params;
+};
+
+export default function ServiceDetail({ params }: ServiceDetailProps) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
