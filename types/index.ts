@@ -3,7 +3,7 @@ export interface Service {
   title: string;
   description: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  cng: boolean;
+  cng?: boolean;
 }
 
 export interface CNGService {
