@@ -14,18 +14,14 @@ export async function generateStaticParams() {
     id: service.id,
   }));
 }
-interface ServiceDetailProps {
-  params: {
-    id: (typeof services)[number]["id"];
-  };
-}
 
-export default function ServiceDetail({ params }: ServiceDetailProps) {
+export default function ServiceDetail({ params }: { params: { id: string } }) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
     notFound();
   }
+  const serviceId = service.id as keyof typeof serviceDetails;
 
   const serviceDetails = {
     preventive: {
@@ -138,7 +134,7 @@ export default function ServiceDetail({ params }: ServiceDetailProps) {
     },
   };
 
-  const detail = serviceDetails[service.id as keyof typeof serviceDetails];
+  const detail = serviceDetails[serviceId];
 
   return (
     <div className="py-20 bg-white">

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaPhoneAlt } from "react-icons/fa";
@@ -44,8 +45,13 @@ const Navbar = () => {
             href="/"
             className="text-white text-xl md:text-2xl font-bold flex items-center"
           >
-            <span className="bg-[#2cbbd4] text-white p-1 rounded mr-2">K</span>
-            <span>russ Automotive</span>
+            <Image
+              src="/images/krusslogo (1).svg"
+              alt="logo"
+              width={120}
+              height={40}
+              priority
+            ></Image>
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">

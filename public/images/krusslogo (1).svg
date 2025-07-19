@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="2666.6667"
+   height="2666.6667"
+   viewBox="0 0 2666.6667 2666.6667"
+   sodipodi:docname="Kruss Cross Finished.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="Kruss Cross Finished"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,2666.6667)">
+    <g
+       id="g10"
+       transform="translate(589.2393,1013.1523)">
+      <path
+         d="M 0,0 -88.767,-86.155 -177.533,0 l 61.641,59.828 27.125,26.327 z m -285.4,-96.083 h 101.126 v -101.675 h 46.068 v 97.425 l 49.439,-47.985 49.44,47.985 v -97.425 H 6.742 v 102.25 h 102.249 v 46.069 H 13.109 L 64.046,0 13.702,48.864 h 94.166 V 94.933 H 6.742 v 102.263 h -46.069 v -96.863 l -49.44,47.985 -49.439,-47.985 v 96.863 h -46.068 V 94.933 H -285.4 V 48.864 h 94.166 L -241.579,0 l 51.53,-50.015 H -285.4 Z"
+         style="fill:#33abd0;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path12" />
+    </g>
+    <text
+       xml:space="preserve"
+       transform="matrix(1,0,0,-1,757.6855,914.8818)"
+       style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:265.46px;font-family:'Futura Book';-inkscape-font-specification:Futura-Bold;writing-mode:lr-tb;fill:#313131;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text16"><tspan
+         x="0 201.21875 381.73163 588.25958 751.78302"
+         y="0"
+         sodipodi:role="line"
+         id="tspan14">KRUSS</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(1,0,0,-1,778.5654,817.1689)"
+       style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:96.5054px;font-family:'Futura Book';-inkscape-font-specification:Futura-Bold;writing-mode:lr-tb;fill:#313131;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text20"><tspan
+         x="0 99.49707 198.70462 274.26834 383.995 502.98615 612.71277 688.27649 743.67059 841.23755"
+         y="0"
+         sodipodi:role="line"
+         id="tspan18">AUTOMOTIVE</tspan></text>
+    <g
+       id="g22"
+       transform="translate(621,1044)">
+      <path
+         d="M 0,0 -31.904,-30.699 -153.383,-147.585 -120,-179 l 49,48 v -98 h 46 v 103 H 77 v 46 h -96 l 51,49 z"
+         style="fill:#08aba2;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path24" />
+    </g>
+    <g
+       id="g26"
+       transform="translate(468,1130)">
+      <path
+         d="m 0,0 121,-117 32,31 -18,18 h 95 v 46 H 128 V 80 H 82 V -18 L 33,31 Z"
+         style="fill:#3c8aa9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path28" />
+    </g>
+    <g
+       id="g30"
+       transform="translate(379,1044)">
+      <path
+         d="M 0,0 -31,-31 0.366,-0.35 Z"
+         style="fill:#ceaf63;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path32" />
+    </g>
+    <g
+       id="g34"
+       transform="translate(411.7144,1012.7725)">
+      <path
+         d="m 0,0 -31.714,-30.772 -32,31 51,-50 h -95 v -46 h 101 v -102 h 46 v 98 l 50,-48 32,32 z"
+         style="fill:#ceaf63;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path36" />
+    </g>
+  </g>
+</svg>

@@ -6,7 +6,7 @@ const HeroSection = () => {
       className="relative h-screen flex items-center justify-center py-20 mt-9"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(12, 65, 135, 0.9), rgba(12, 65, 135, 0.7)), url('/images/hero-bg.jpg')",
+          "linear-gradient(rgba(12, 12, 12, 0.9), rgba(69, 77, 92, 0.7)), url('/images/hero.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

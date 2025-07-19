@@ -78,9 +78,9 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
             <address className="not-italic text-gray-400 space-y-3">
-              <p>123 Automotive Way</p>
-              <p>Tech City, TC 12345</p>
-              <p>Phone: (123) 456-7890</p>
+              <p>Kosofe</p>
+              <p>Lagos, Nigeria</p>
+              <p>Phone: (+234) 9030-1696</p>
               <p>Email: info@krussauto.com</p>
             </address>
           </div>
