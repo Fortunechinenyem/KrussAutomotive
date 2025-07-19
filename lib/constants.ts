@@ -15,7 +15,7 @@ export interface Service {
   cng: boolean;
 }
 
-export const services: Service[] = [
+export const services = [
   {
     id: "preventive",
     title: "Preventive Maintenance",

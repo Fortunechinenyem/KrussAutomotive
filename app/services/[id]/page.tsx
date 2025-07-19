@@ -8,33 +8,25 @@ import {
   FaCarCrash,
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
-import { ReactNode } from "react";
 
 export async function generateStaticParams() {
   return services.map((service) => ({
     id: service.id,
   }));
 }
-interface ServiceDetailProps {
-  params: {
-    id: string;
-  };
-}
 
-interface ServiceDetailType {
-  features: string[];
-  benefits: string[];
-  icon: ReactNode;
-}
+type Params = {
+  id: string;
+};
 
-export default function ServiceDetail({ params }: ServiceDetailProps) {
+export default function ServiceDetail({ params }: { params: Params }) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
     notFound();
   }
 
-  const serviceDetails: Record<string, ServiceDetailType> = {
+  const serviceDetails = {
     preventive: {
       features: [
         "Regular oil and filter changes",
@@ -145,11 +137,7 @@ export default function ServiceDetail({ params }: ServiceDetailProps) {
     },
   };
 
-  const detail = serviceDetails[service.id];
-
-  if (!detail) {
-    notFound();
-  }
+  const detail = serviceDetails[service.id as keyof typeof serviceDetails];
 
   return (
     <div className="py-20 bg-white">
