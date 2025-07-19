@@ -8,24 +8,32 @@ import {
   FaCarCrash,
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
-import { ServiceDetailPageProps, ServiceDetail } from "@/types";
+import { ReactNode } from "react";
+
+interface ServiceDetail {
+  features: string[];
+  benefits: string[];
+  icon: ReactNode;
+}
 
 interface ServiceDetails {
   [key: string]: ServiceDetail;
 }
 
-export default function ServiceDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function SServiceDetailPage({ params }: PageProps) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
     notFound();
   }
 
-  const serviceDetails: Record<string, ServiceDetail> = {
+  const serviceDetails: ServiceDetails = {
     preventive: {
       features: [
         "Regular oil and filter changes",
@@ -137,7 +145,6 @@ export default function ServiceDetailPage({
   };
 
   const detail = serviceDetails[service.id];
-
   return (
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
