@@ -8,24 +8,24 @@ import {
   FaCarCrash,
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
+import { ReactNode } from "react";
 
 export async function generateStaticParams() {
   return services.map((service) => ({
     id: service.id,
   }));
 }
-type PageParams = {
-  id: string;
-};
+interface ServiceDetailProps {
+  params: {
+    id: string;
+  };
+}
 
-type ServiceDetailType = {
+interface ServiceDetailType {
   features: string[];
   benefits: string[];
-  icon: React.ReactNode;
-};
-type ServiceDetailProps = {
-  params: PageParams;
-};
+  icon: ReactNode;
+}
 
 export default function ServiceDetail({ params }: ServiceDetailProps) {
   const service = services.find((s) => s.id === params.id);
