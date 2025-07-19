@@ -40,7 +40,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link
             href="/"
             className="text-white text-xl md:text-2xl font-bold flex items-center"
@@ -49,7 +48,6 @@ const Navbar = () => {
             <span>russ Automotive</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
@@ -62,10 +60,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center space-x-4 md:hidden">
             <a
-              href="tel:+1234567890"
+              href="tel:+234 9025301696"
               className="text-white hover:text-[#2cbbd4] transition-colors"
               aria-label="Call us"
             >

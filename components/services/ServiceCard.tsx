@@ -12,7 +12,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         <div className="flex items-center mb-4">
           <div
             className="p-3 rounded-lg"
-            style={{ backgroundColor: "#2cbbd4", color: "white" }}
+            style={{
+              backgroundColor: service.cng ? "#7f870c" : "#2cbbd4",
+              color: "white",
+            }}
           >
             <service.icon className="h-6 w-6" />
           </div>
@@ -21,12 +24,16 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </h3>
         </div>
         <p className="text-gray-600 mb-6">{service.description}</p>
+        {service.cng && (
+          <span className="inline-block bg-[#f5f7e6] text-[#7f870c] text-xs px-2 py-1 rounded-full mb-4">
+            CNG Specialization
+          </span>
+        )}
       </div>
       <div className="px-6 pb-6">
         <Link
-          href={`/services#${service.id}`}
-          className="font-medium flex items-center transition-colors"
-          style={{ color: "#2cbbd4" }}
+          href={`/services/${service.id}`}
+          className="text-[#2cbbd4] hover:text-[#2395a9] font-medium flex items-center transition-colors"
         >
           Learn more
           <svg

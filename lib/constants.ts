@@ -1,62 +1,55 @@
 import {
   FaCar,
   FaTools,
-  FaGasPump,
-  FaCarCrash,
-  FaCarBattery,
   FaOilCan,
+  FaCarBattery,
+  FaCarCrash,
 } from "react-icons/fa";
 
 export const services = [
   {
-    id: "maintenance",
+    id: "preventive",
     title: "Preventive Maintenance",
-    description:
-      "Regular check-ups to keep your vehicle running smoothly and prevent costly repairs.",
+    description: "Regular check-ups to keep your vehicle running smoothly...",
     icon: FaTools,
     cng: false,
   },
   {
     id: "diagnostics",
     title: "Advanced Diagnostics",
-    description:
-      "State-of-the-art diagnostic tools to accurately identify and fix vehicle issues.",
+    description: "State-of-the-art diagnostic tools...",
     icon: FaCarBattery,
     cng: false,
   },
   {
-    id: "oil-change",
+    id: "oil",
     title: "Oil & Filter Change",
-    description:
-      "High-quality oil and filter replacements to keep your engine running clean.",
+    description: "High-quality oil and filter replacements...",
     icon: FaOilCan,
     cng: false,
   },
   {
-    id: "cng-installation",
-    title: "CNG Installation",
-    description:
-      "Professional CNG kit installation with government-approved certification.",
-    icon: FaGasPump,
+    id: "cng",
+    title: "CNG Services",
+    description: "Professional CNG installation...",
+    icon: FaCar,
     cng: true,
   },
   {
-    id: "body-repair",
-    title: "Body Repair & Paint",
-    description:
-      "Expert collision repair and paint services to restore your vehicle to its original condition.",
+    id: "body",
+    title: "Body Repair",
+    description: "Expert collision repair...",
     icon: FaCarCrash,
     cng: false,
   },
   {
     id: "inspection",
     title: "Pre-Purchase Inspection",
-    description:
-      "Comprehensive vehicle inspection before purchase to ensure you make an informed decision.",
+    description: "Comprehensive vehicle inspection...",
     icon: FaCar,
     cng: false,
   },
-];
+] as const;
 
 export const cngServices = [
   {
