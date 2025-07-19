@@ -32,7 +32,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       </div>
       <div className="px-6 pb-6">
         <Link
-          href={`/services/${service.id}`}
+          href={`/services/detail?id=${service.id}`}
           className="text-[#2cbbd4] hover:text-[#2395a9] font-medium flex items-center transition-colors"
         >
           Learn more
