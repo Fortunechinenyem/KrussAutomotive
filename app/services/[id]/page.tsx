@@ -23,8 +23,11 @@ type ServiceDetailType = {
   benefits: string[];
   icon: React.ReactNode;
 };
+type ServiceDetailProps = {
+  params: PageParams;
+};
 
-export default function ServiceDetail({ params }: { params: PageParams }) {
+export default function ServiceDetail({ params }: ServiceDetailProps) {
   const service = services.find((s) => s.id === params.id);
 
   if (!service) {
