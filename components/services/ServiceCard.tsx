@@ -13,7 +13,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           <div
             className="p-3 rounded-lg"
             style={{
-              backgroundColor: service.cng ? "#7f870c" : "#2cbbd4",
+              backgroundColor: "#2cbbd4",
               color: "white",
             }}
           >

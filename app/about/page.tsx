@@ -40,7 +40,6 @@ const AboutPage = () => {
 
   return (
     <div className="pt-32 pb-20 bg-white">
-      {/* Hero Section */}
       <section className="container mx-auto px-4 mb-20">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">

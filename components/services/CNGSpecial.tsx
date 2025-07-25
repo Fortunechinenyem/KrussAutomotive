@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaGasPump, FaShieldAlt, FaMoneyBillWave } from "react-icons/fa";
 
@@ -56,11 +57,13 @@ const CNGSpecial = () => {
           </Link>
         </div>
         <div className="md:w-1/3 flex justify-center">
-          <div className="relative w-48 h-48">
-            <img
-              src="/images/cng-icon.png"
+          <div className="relative ">
+            <Image
+              src="/images/cng-pic.jpg"
               alt="CNG Services"
-              className="object-contain h-full w-full"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
         </div>
