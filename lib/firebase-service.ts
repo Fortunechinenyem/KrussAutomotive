@@ -11,7 +11,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Inspection, User, Vehicle } from "./firebase-types";
+import { Inspection, User, Vehicle, InspectionStatus } from "./firebase-types";
 
 // User Operations
 export const createUser = async (userData: User) => {
