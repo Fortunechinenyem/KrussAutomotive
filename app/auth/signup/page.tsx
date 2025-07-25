@@ -1,5 +1,5 @@
 "use client";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "@/lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
@@ -19,7 +19,10 @@ export default function SignUpPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,17 +44,26 @@ export default function SignUpPage() {
         formData.password
       );
 
-      // 2. Create user document in Firestore
+      // 2. Update user profile with display name
+      await updateProfile(userCredential.user, {
+        displayName: formData.name,
+      });
+
+      // 3. Create user document in Firestore
       await setDoc(doc(db, "users", userCredential.user.uid), {
         name: formData.name,
         email: formData.email,
         role: "technician",
         createdAt: new Date().toISOString(),
+        uid: userCredential.user.uid, // Store uid for easier queries
       });
 
-      // 3. Redirect to technician portal
-      router.push("/technician-portal");
-    } catch (err) {
+      // 4. Redirect after short delay
+      setTimeout(() => {
+        router.push("/technician-portal");
+      }, 1000);
+    } catch (err: any) {
+      console.error("Registration error:", err);
       setError(getFirebaseError(err));
     } finally {
       setLoading(false);

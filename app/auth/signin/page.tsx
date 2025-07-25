@@ -14,18 +14,21 @@ export default function SignInPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    setLoading(true);
+    setError("");
 
     try {
-      await signInWithEmailAndPassword(
-        auth,
-        formData.get("email") as string,
-        formData.get("password") as string
-      );
-      // Use router.push instead of redirect
-      router.push("/technician-portal");
-    } catch (error) {
-      console.error("Login error:", error);
+      await signInWithEmailAndPassword(auth, email, password);
+
+      // Add delay to ensure auth state is updated
+      setTimeout(() => {
+        router.push("/technician-portal");
+      }, 500);
+    } catch (err: any) {
+      console.error("Login error:", err);
+      setError(getFirebaseError(err));
+    } finally {
+      setLoading(false);
     }
   };
 
