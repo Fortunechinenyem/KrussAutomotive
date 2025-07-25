@@ -40,20 +40,24 @@ const AboutPage = () => {
 
   return (
     <div className="pt-32 pb-20 bg-white">
-      <section className="container mx-auto px-4 mb-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#0c4187] mb-6">
+      <section className="container mx-auto px-4 mb-16 md:mb-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+          <div className="w-full lg:w-1/2 order-2 lg:order-1 mt-8 lg:mt-0">
+            <div className="inline-block bg-blue-50 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+              About Our Company
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0c4187] mb-4 md:mb-6 leading-tight">
               Revolutionizing <span className="text-[#2cbbd4]">Automotive</span>{" "}
               Services
             </h1>
-            <p className="text-lg text-[#0c4187]/90 mb-8">
+            <p className="text-base md:text-lg text-[#0c4187]/90 mb-6 md:mb-8">
               At Kruss Automotive, we're transforming the vehicle ownership
               experience through innovative technology and unparalleled service.
               From pre-purchase inspections to after-sale maintenance, we
               provide comprehensive solutions that put you in control.
             </p>
-            <div className="space-y-4 mb-8">
+
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
               {[
                 "Founded in 2019 with a vision to modernize auto services",
                 "Pioneers in CNG conversion technology",
@@ -61,21 +65,46 @@ const AboutPage = () => {
                 "Award-winning customer service 3 years running",
               ].map((item, index) => (
                 <div key={index} className="flex items-start">
-                  <FaCheck className="text-[#7f870c] mt-1 mr-3 flex-shrink-0" />
-                  <p className="text-[#0c4187]">{item}</p>
+                  <FaCheck className="text-[#7f870c] mt-1 mr-3 flex-shrink-0 min-w-5" />
+                  <p className="text-[#0c4187] text-sm md:text-base">{item}</p>
                 </div>
               ))}
             </div>
+
+            <Link
+              href="/about/more"
+              className="inline-flex items-center px-6 py-2.5 bg-[#2cbbd4] hover:bg-[#2395a9] text-white font-medium rounded-lg transition-colors duration-300 shadow-sm"
+            >
+              Learn More About Us
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </Link>
           </div>
-          <div className="lg:w-1/2 relative">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
+
+          <div className="w-full lg:w-1/2 order-1 lg:order-2">
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/images/hero.jpg"
                 alt="Kruss Automotive Service Center"
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c4187]/10 to-[#0c4187]/5"></div>
             </div>
           </div>
         </div>
