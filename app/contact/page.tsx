@@ -86,7 +86,7 @@ export default function Contact() {
                       Our Location
                     </h3>
                     <p className="text-[#0c4187]/80">
-                      123 Automotive Street, Tech City, TC 12345
+                      Ikosi Ketu, Lagos, Nigeria.
                     </p>
                   </div>
                 </div>
@@ -134,15 +134,16 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
             <div className="bg-gray-200 h-64 rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.80123456789!2d77.5945627!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzUnNDAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.712686090851!2d3.3867227157698926!3d6.603041595242445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93a6a1c9b3a5%3A0x5dc7e5e5b5a5b5a5!2sKetu-Ikosi%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ketu-Ikosi, Lagos Location Map"
               ></iframe>
             </div>
           </div>

@@ -56,7 +56,7 @@ const AboutPage = () => {
             </p>
             <div className="space-y-4 mb-8">
               {[
-                "Founded in 2012 with a vision to modernize auto services",
+                "Founded in 2019 with a vision to modernize auto services",
                 "Pioneers in CNG conversion technology",
                 "First fully digital automotive service center in the region",
                 "Award-winning customer service 3 years running",
@@ -71,7 +71,7 @@ const AboutPage = () => {
           <div className="lg:w-1/2 relative">
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/images/about-hero.jpg"
+                src="/images/hero.jpg"
                 alt="Kruss Automotive Service Center"
                 fill
                 className="object-cover"
@@ -85,7 +85,6 @@ const AboutPage = () => {
       {/* Mission Section */}
       <section className="bg-[#e6edf7] py-16">
         {" "}
-        {/* Light navy background */}
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0c4187] mb-4">
@@ -107,7 +106,6 @@ const AboutPage = () => {
                 <div className="flex justify-center mb-4">
                   <div className="bg-[#f5f7e6] p-4 rounded-full text-[#7f870c]">
                     {" "}
-                    {/* Light olive background */}
                     <feature.icon className="h-6 w-6" />
                   </div>
                 </div>
@@ -171,7 +169,6 @@ const AboutPage = () => {
                   {member.name}
                 </h3>
                 <p className="text-[#2cbbd4] mb-4">{member.role}</p>{" "}
-                {/* Teal accent */}
                 <p className="text-[#0c4187]/80">{member.bio}</p>
               </div>
             </div>
@@ -179,10 +176,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Values Section */}
       <section className="bg-[#0c4187] text-white py-16">
         {" "}
-        {/* Navy background */}
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Our Core Values</h2>
@@ -215,10 +210,8 @@ const AboutPage = () => {
                 className="bg-[#0c4187]/90 p-6 rounded-lg hover:bg-[#0c4187]/80 transition-colors"
               >
                 {" "}
-                {/* Slightly lighter navy */}
                 <h3 className="text-xl font-semibold mb-3 text-[#2cbbd4]">
                   {" "}
-                  {/* Teal accent */}
                   {value.title}
                 </h3>
                 <p className="text-white/90">{value.description}</p>
@@ -228,10 +221,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 bg-[#2cbbd4] text-white">
         {" "}
-        {/* Teal background */}
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Experience the Kruss Difference
