@@ -3,7 +3,7 @@ import CTAButton from "../common/CTAButton";
 const HeroSection = () => {
   return (
     <section
-      className="relative h-screen flex items-center justify-center py-20 mt-9"
+      className="relative h-screen flex items-center justify-center py-25 mt-10"
       style={{
         backgroundImage:
           "linear-gradient(rgba(12, 12, 12, 0.9), rgba(69, 77, 92, 0.7)), url('/images/hero.jpg')",

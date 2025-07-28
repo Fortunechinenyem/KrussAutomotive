@@ -1,24 +1,25 @@
 const StatsSection = () => {
-  const stats = [
-    { value: "100%", label: "Customer Satisfaction" },
-    { value: "200+", label: "Vehicles Serviced Monthly" },
-    { value: "24/7", label: "Roadside Assistance" },
-    { value: "10+", label: "Years of Experience" },
-  ];
-
   return (
-    <section className="py-16 bg-gradient-to-r from-black to-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <h3 className="text-4xl md:text-5xl font-bold text-[#2395a9] mb-2">
-                {stat.value}
-              </h3>
-              <p className="text-white/80 text-sm md:text-base">{stat.label}</p>
+    <section className="bg-[#e6edf7] rounded-xl p-12 mb-20">
+      <h2 className="text-3xl font-bold text-[#0c4187] mb-2 text-center">
+        By The Numbers
+      </h2>
+      <div className="border-b-4 border-[#2cbbd4] w-20 mx-auto mb-12"></div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { value: "5000+", label: "Satisfied Customers" },
+          { value: "10+", label: "Years Experience" },
+          { value: "98%", label: "Customer Satisfaction" },
+          { value: "24/7", label: "Support Available" },
+        ].map((stat, index) => (
+          <div key={index}>
+            <div className="text-4xl font-bold text-[#0c4187] mb-2">
+              {stat.value}
             </div>
-          ))}
-        </div>
+            <div className="text-lg text-[#0c4187]/80">{stat.label}</div>
+          </div>
+        ))}
       </div>
     </section>
   );
