@@ -4,6 +4,8 @@ import {
   FaOilCan,
   FaCarBattery,
   FaCarCrash,
+  FaRunning,
+  FaShoppingBag,
 } from "react-icons/fa";
 import { ComponentType, SVGProps } from "react";
 
@@ -58,6 +60,21 @@ export const services = [
     icon: FaCar,
     cng: false,
   },
+  {
+    id: "errand",
+    title: "Auto-Errand as a Service",
+    description: "Let us handle your vehicle-related errands and paperwork...",
+    icon: FaRunning,
+    cng: false,
+  },
+  {
+    id: "delivery",
+    title: "Vehicle Delivery Service",
+    description:
+      "Convenient pickup and delivery for your vehicle service needs...",
+    icon: FaShoppingBag,
+    cng: false,
+  },
 ] as const;
 
 export const cngServices = [
@@ -110,5 +127,21 @@ export const testimonials = [
     content:
       "Their preventive maintenance program has saved us thousands in unexpected repairs. Highly recommended!",
     rating: 4,
+  },
+  {
+    id: 4,
+    name: "Anjali Mehta",
+    role: "Working Professional",
+    content:
+      "The auto-errand service saved me so much time! They handled all my vehicle paperwork while I was at work.",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Sanjay Gupta",
+    role: "Corporate Client",
+    content:
+      "The vehicle delivery service has streamlined our company's fleet maintenance. Excellent convenience and reliability.",
+    rating: 5,
   },
 ];

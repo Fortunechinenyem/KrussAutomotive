@@ -4,6 +4,8 @@ import {
   FaOilCan,
   FaCarBattery,
   FaCarCrash,
+  FaShoppingBag,
+  FaRunning,
 } from "react-icons/fa";
 import ServiceCard from "@/components/services/ServiceCard";
 import Link from "next/link";
@@ -57,6 +59,22 @@ export default function Services() {
       icon: FaCar,
       cng: false,
     },
+    {
+      id: "errand",
+      title: "Auto-Errand as a Service",
+      description:
+        "Let us handle your vehicle-related errands - from DMV visits to part pickups.",
+      icon: FaRunning,
+      cng: false,
+    },
+    {
+      id: "delivery",
+      title: "Vehicle Delivery Service",
+      description:
+        "We'll pick up and deliver your vehicle for service at your convenience.",
+      icon: FaShoppingBag,
+      cng: false,
+    },
   ];
 
   return (
@@ -68,8 +86,8 @@ export default function Services() {
           </h1>
           <p className="text-lg text-[#0c4187]/80 max-w-3xl mx-auto">
             Comprehensive solutions for all your vehicle needs. From routine
-            maintenance to specialized repairs, our certified technicians
-            deliver exceptional service.
+            maintenance to specialized repairs and convenient services, our
+            certified technicians deliver exceptional service.
           </p>
         </div>
 

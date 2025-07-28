@@ -7,6 +7,8 @@ import {
   FaOilCan,
   FaCar,
   FaCarCrash,
+  FaRunning,
+  FaShoppingBag,
 } from "react-icons/fa";
 import CTAButton from "@/components/common/CTAButton";
 import { ReactNode } from "react";
@@ -140,6 +142,42 @@ export default function ServiceDetailPage() {
       ],
       icon: <FaCar className="text-[#2cbbd4] text-4xl mb-4" />,
     },
+    errand: {
+      features: [
+        "DMV paperwork handling",
+        "Vehicle registration renewal",
+        "Part and accessory pickups",
+        "Document delivery services",
+        "Inspection station visits",
+        "Custom errand requests",
+      ],
+      benefits: [
+        "Saves you valuable time",
+        "No more waiting in lines",
+        "Expert handling of paperwork",
+        "Convenient scheduling",
+        "Real-time updates",
+      ],
+      icon: <FaRunning className="text-[#2cbbd4] text-4xl mb-4" />,
+    },
+    delivery: {
+      features: [
+        "Vehicle pickup for service",
+        "Post-service return delivery",
+        "Loaner vehicle coordination",
+        "Flexible scheduling",
+        "Secure key handling",
+        "Service report delivery",
+      ],
+      benefits: [
+        "No need to leave home/work",
+        "Seamless service experience",
+        "Time-saving convenience",
+        "Professional drivers",
+        "Fully insured transport",
+      ],
+      icon: <FaShoppingBag className="text-[#2cbbd4] text-4xl mb-4" />,
+    },
   };
 
   const detail = serviceDetails[service.id];
@@ -221,24 +259,66 @@ export default function ServiceDetailPage() {
             <div className="bg-white/10 p-6 rounded-lg">
               <h3 className="text-xl font-medium mb-2">Basic Package</h3>
               <p className="text-[#2cbbd4] font-bold text-2xl mb-4">
-                N30,000 - N50,000
+                {service.id === "errand"
+                  ? "N5,000 - N15,000"
+                  : service.id === "delivery"
+                  ? "N3,000 - N10,000"
+                  : "N30,000 - N50,000"}
               </p>
               <ul className="space-y-2 text-white/90">
-                <li>Standard service</li>
-                <li>Genuine parts</li>
-                <li>6-month warranty</li>
+                {service.id === "errand" ? (
+                  <>
+                    <li>Standard errand service</li>
+                    <li>Local area coverage</li>
+                    <li>Basic documentation</li>
+                  </>
+                ) : service.id === "delivery" ? (
+                  <>
+                    <li>Local area delivery</li>
+                    <li>Standard vehicle transport</li>
+                    <li>Basic insurance coverage</li>
+                  </>
+                ) : (
+                  <>
+                    <li>Standard service</li>
+                    <li>Genuine parts</li>
+                    <li>6-month warranty</li>
+                  </>
+                )}
               </ul>
             </div>
             <div className="bg-white/10 p-6 rounded-lg border-2 border-[#2cbbd4]">
               <h3 className="text-xl font-medium mb-2">Premium Package</h3>
               <p className="text-[#2cbbd4] font-bold text-2xl mb-4">
-                N70,000 - N100,000
+                {service.id === "errand"
+                  ? "N20,000 - N35,000"
+                  : service.id === "delivery"
+                  ? "N15,000 - N25,000"
+                  : "N70,000 - N100,000"}
               </p>
               <ul className="space-y-2 text-white/90">
-                <li>Comprehensive service</li>
-                <li>High-performance parts</li>
-                <li>1-year warranty</li>
-                <li>Free follow-up check</li>
+                {service.id === "errand" ? (
+                  <>
+                    <li>Priority scheduling</li>
+                    <li>Extended area coverage</li>
+                    <li>Complex paperwork handling</li>
+                    <li>Same-day service</li>
+                  </>
+                ) : service.id === "delivery" ? (
+                  <>
+                    <li>Extended area coverage</li>
+                    <li>Premium vehicle transport</li>
+                    <li>Enhanced insurance</li>
+                    <li>Express service</li>
+                  </>
+                ) : (
+                  <>
+                    <li>Comprehensive service</li>
+                    <li>High-performance parts</li>
+                    <li>1-year warranty</li>
+                    <li>Free follow-up check</li>
+                  </>
+                )}
               </ul>
             </div>
             <div className="bg-white/10 p-6 rounded-lg">
@@ -247,9 +327,25 @@ export default function ServiceDetailPage() {
                 Contact Us
               </p>
               <ul className="space-y-2 text-white/90">
-                <li>Tailored to your needs</li>
-                <li>Vehicle-specific approach</li>
-                <li>Flexible scheduling</li>
+                {service.id === "errand" ? (
+                  <>
+                    <li>Specialized errand services</li>
+                    <li>Recurring service plans</li>
+                    <li>Corporate solutions</li>
+                  </>
+                ) : service.id === "delivery" ? (
+                  <>
+                    <li>Fleet delivery solutions</li>
+                    <li>Long-distance transport</li>
+                    <li>Custom scheduling</li>
+                  </>
+                ) : (
+                  <>
+                    <li>Tailored to your needs</li>
+                    <li>Vehicle-specific approach</li>
+                    <li>Flexible scheduling</li>
+                  </>
+                )}
               </ul>
             </div>
           </div>
