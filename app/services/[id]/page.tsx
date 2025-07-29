@@ -260,10 +260,10 @@ export default function ServiceDetailPage() {
               <h3 className="text-xl font-medium mb-2">Basic Package</h3>
               <p className="text-[#2cbbd4] font-bold text-2xl mb-4">
                 {service.id === "errand"
-                  ? "N5,000 - N15,000"
+                  ? "N35,000 - N50,000"
                   : service.id === "delivery"
-                  ? "N3,000 - N10,000"
-                  : "N30,000 - N50,000"}
+                  ? "N50,000 - N70,000"
+                  : "N70,000 - N100,000"}
               </p>
               <ul className="space-y-2 text-white/90">
                 {service.id === "errand" ? (
@@ -291,9 +291,9 @@ export default function ServiceDetailPage() {
               <h3 className="text-xl font-medium mb-2">Premium Package</h3>
               <p className="text-[#2cbbd4] font-bold text-2xl mb-4">
                 {service.id === "errand"
-                  ? "N20,000 - N35,000"
+                  ? "N50,000 - N100,000"
                   : service.id === "delivery"
-                  ? "N15,000 - N25,000"
+                  ? "N35,000 - N50,000"
                   : "N70,000 - N100,000"}
               </p>
               <ul className="space-y-2 text-white/90">

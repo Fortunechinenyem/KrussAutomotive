@@ -25,7 +25,6 @@ export default function Home() {
       <ServicesGrid />
       <Testimonials />
 
-      {/* Sleek Technician Portal Section */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
