@@ -30,7 +30,45 @@ export default function BookAppointment() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const vehicleType = formData.get("vehicleType") as string;
+    const date = formData.get("date") as string;
+    const time = formData.get("time") as string;
+    const service = formData.get("service") as string;
+    const details = (formData.get("details") as string) || "None";
+
+    const formattedDate = new Date(date).toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const message =
+      `*New Appointment Request*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Vehicle Type:* ${vehicleType}\n` +
+      `*Preferred Date:* ${formattedDate}\n` +
+      `*Preferred Time:* ${time}\n` +
+      `*Service Needed:* ${service}\n` +
+      `*Additional Details:* ${details}`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    const whatsappNumber = "2349025301696";
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
+
+    // Set success state after a small delay
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -100,6 +138,7 @@ export default function BookAppointment() {
                     <FaUser className="absolute left-3 top-3 text-[#7f870c]" />
                     <input
                       type="text"
+                      name="name"
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent"
                       placeholder="John Doe"
@@ -115,6 +154,7 @@ export default function BookAppointment() {
                     <FaPhone className="absolute left-3 top-3 text-[#7f870c]" />
                     <input
                       type="tel"
+                      name="phone"
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent"
                       placeholder="+234 902 530 1696"
@@ -129,6 +169,7 @@ export default function BookAppointment() {
                   <div className="relative">
                     <FaCar className="absolute left-3 top-3 text-[#7f870c]" />
                     <select
+                      name="vehicleType"
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent appearance-none"
                     >
@@ -151,6 +192,7 @@ export default function BookAppointment() {
                       <FaCalendarAlt className="absolute left-3 top-3 text-[#7f870c]" />
                       <input
                         type="date"
+                        name="date"
                         required
                         className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent"
                       />
@@ -164,6 +206,7 @@ export default function BookAppointment() {
                     <div className="relative">
                       <FaClock className="absolute left-3 top-3 text-[#7f870c]" />
                       <select
+                        name="time"
                         required
                         className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent appearance-none"
                       >
@@ -184,6 +227,7 @@ export default function BookAppointment() {
                   <div className="relative">
                     <FaTools className="absolute left-3 top-3 text-[#7f870c]" />
                     <select
+                      name="service"
                       required
                       value={selectedService}
                       onChange={(e) => setSelectedService(e.target.value)}
@@ -206,6 +250,7 @@ export default function BookAppointment() {
                       Additional Details
                     </label>
                     <textarea
+                      name="details"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] focus:border-transparent"
                       rows={3}
                       placeholder="Any specific issues or requests?"
