@@ -15,10 +15,17 @@ const Navbar = () => {
       name: "Services",
       path: "/services",
       submenu: [
-        { name: "Preventive Maintenance", path: "/services/preventive" },
-        { name: "CNG Conversion", path: "/services/cng" },
-        { name: "Diagnostics", path: "/services/diagnostics" },
-        { name: "Body Repair", path: "/services/body" },
+        {
+          name: "Preventive Maintenance",
+          path: "/services/detail?id=preventive",
+        },
+        {
+          name: "Auto-Errand",
+          path: "/services/detail?id=errand",
+        },
+        { name: "CNG Conversion", path: "/services/detail?id=cng" },
+        { name: "Diagnostics", path: "/services/detail?id=diagnostics" },
+        { name: "Body Repair", path: "/services/detail?id=body" },
       ],
     },
     { name: "About", path: "/about" },
@@ -58,7 +65,6 @@ const Navbar = () => {
         </p>
       </div> */}
 
-      {/* Main Navigation */}
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center">
