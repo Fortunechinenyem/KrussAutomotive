@@ -8,11 +8,12 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import Link from "next/link";
 import CTAButton from "@/components/common/CTAButton";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function Home() {
   const [user] = useAuthState(auth);
   const [isTechnician, setIsTechnician] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (user) {
@@ -20,12 +21,92 @@ export default function Home() {
     }
   }, [user]);
 
+  const toggleFAQ = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "What services do you offer?",
+      answer:
+        "We provide comprehensive automotive services including preventive maintenance, CNG conversions, diagnostics, oil changes, body repairs, and vehicle delivery services.",
+    },
+    {
+      question: "How do I book an appointment?",
+      answer:
+        "You can book an appointment through our website using the booking form, by calling us directly, or by visiting our service center during business hours.",
+    },
+    {
+      question: "What are your working hours?",
+      answer:
+        "Our service center is open Monday to Friday from 8:00 AM to 6:00 PM, and Saturdays from 9:00 AM to 5:00 PM. Emergency services are available 24/7.",
+    },
+    {
+      question: "Do you use genuine parts?",
+      answer:
+        "Yes, we only use genuine or OEM-equivalent parts for all repairs and replacements to ensure the best quality and performance for your vehicle.",
+    },
+    {
+      question: "How long do typical services take?",
+      answer:
+        "Service duration varies by type: oil changes take about 30 minutes, while more complex services like diagnostics or body repairs may take several hours or days. We'll provide an estimated timeframe when you book.",
+    },
+    {
+      question: "Do you offer warranties on your services?",
+      answer:
+        "Yes, we provide a 12-month warranty on all our services and parts. Specific warranty terms may vary by service type.",
+    },
+  ];
+
   return (
     <main>
       <HeroSection />
       <StatsSection />
       <ServicesGrid />
       <Testimonials />
+
+      <section className="py-16 bg-[#e6edf7]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[#0c4187]/80 max-w-2xl mx-auto">
+              Find answers to common questions about our services and processes
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="mb-4 border border-gray-200 rounded-lg overflow-hidden"
+              >
+                <button
+                  className={`w-full flex justify-between items-center p-6 text-left ${
+                    activeIndex === index ? "bg-[#e6edf7]" : "bg-white"
+                  }`}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <h3 className="text-lg font-medium text-[#0c4187]">
+                    {faq.question}
+                  </h3>
+                  {activeIndex === index ? (
+                    <FaChevronUp className="text-[#2cbbd4]" />
+                  ) : (
+                    <FaChevronDown className="text-[#2cbbd4]" />
+                  )}
+                </button>
+                {activeIndex === index && (
+                  <div className="p-6 bg-white text-gray-600 border-t border-gray-100">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
@@ -131,6 +212,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="py-16 bg-[#0c4187] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">

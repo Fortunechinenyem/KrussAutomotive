@@ -47,19 +47,19 @@ const AboutPage = () => {
 
   const leadership = [
     {
-      name: "Rahul Kruss",
+      name: "Joshua Ayodeji Aribido",
       role: "Founder & CEO",
       bio: "Automotive industry veteran with 20+ years experience in vehicle service and technology integration.",
       image: "/images/team-1.jpg",
     },
     {
-      name: "Priya Nair",
+      name: "Fortune Chinenyem-Aribido",
       role: "Chief Technology Officer",
       bio: "Leads our digital transformation initiatives to create seamless customer experiences.",
       image: "/images/team-2.jpg",
     },
     {
-      name: "Vikram Joshi",
+      name: "The Trinity",
       role: "Head of Service Operations",
       bio: "Oversees all service operations with a focus on quality and efficiency.",
       image: "/images/team-3.jpg",
