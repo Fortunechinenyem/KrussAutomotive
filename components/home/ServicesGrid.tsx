@@ -1,12 +1,20 @@
+import { useState } from "react";
 import Link from "next/link";
 import { services } from "@/lib/constants";
 
 const ServicesGrid = () => {
+  const [activeTab, setActiveTab] = useState("all");
+
+  const filteredServices =
+    activeTab === "all"
+      ? services
+      : services.filter((service) => service.category === activeTab);
+
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
             Comprehensive Automotive Solutions
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -15,25 +23,70 @@ const ServicesGrid = () => {
           </p>
         </div>
 
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-md shadow-sm">
+            <button
+              onClick={() => setActiveTab("all")}
+              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${
+                activeTab === "all"
+                  ? "bg-[#0c4187] text-white"
+                  : "bg-white text-[#0c4187] hover:bg-gray-50"
+              }`}
+            >
+              All Services
+            </button>
+            <button
+              onClick={() => setActiveTab("maintenance")}
+              className={`px-4 py-2 text-sm font-medium ${
+                activeTab === "maintenance"
+                  ? "bg-[#0c4187] text-white"
+                  : "bg-white text-[#0c4187] hover:bg-gray-50"
+              }`}
+            >
+              Maintenance
+            </button>
+            <button
+              onClick={() => setActiveTab("repair")}
+              className={`px-4 py-2 text-sm font-medium ${
+                activeTab === "repair"
+                  ? "bg-[#0c4187] text-white"
+                  : "bg-white text-[#0c4187] hover:bg-gray-50"
+              }`}
+            >
+              Repairs
+            </button>
+            <button
+              onClick={() => setActiveTab("conversion")}
+              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${
+                activeTab === "conversion"
+                  ? "bg-[#0c4187] text-white"
+                  : "bg-white text-[#0c4187] hover:bg-gray-50"
+              }`}
+            >
+              Conversions
+            </button>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
+          {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border border-gray-100"
             >
               <div className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg  text-[#2395a9]">
+                  <div className="p-3 rounded-lg bg-[#e6edf7] text-[#2395a9]">
                     <service.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-semibold ml-4">
+                  <h3 className="text-xl font-semibold ml-4 text-[#0c4187]">
                     {service.title}
                   </h3>
                 </div>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <Link
                   href={`/services#${service.id}`}
-                  className="text-[#2395a9] hover:text-orange-600 font-medium flex items-center"
+                  className="text-[#2395a9] hover:text-[#0c4187] font-medium flex items-center"
                 >
                   Learn more
                   <svg
@@ -68,7 +121,7 @@ const ServicesGrid = () => {
                 </p>
                 <Link
                   href="/cng"
-                  className="inline-flex items-center px-6 py-2 bg-white text-orange-600 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center px-6 py-2 bg-white text-[#2395a9] rounded-full font-medium hover:bg-gray-100 transition-colors"
                 >
                   Explore CNG Services
                 </Link>

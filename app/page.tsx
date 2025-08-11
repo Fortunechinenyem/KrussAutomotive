@@ -7,6 +7,8 @@ import StatsSection from "@/components/home/StatsSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import Link from "next/link";
+import CTAButton from "@/components/common/CTAButton";
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Home() {
   const [user] = useAuthState(auth);
@@ -126,6 +128,32 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-16 bg-[#0c4187] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready for Exceptional Auto Care?
+          </h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+            Schedule your service today and experience the difference
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CTAButton
+              href="/book-appointment"
+              variant="primary"
+              className="bg-white text-[#0c4187] hover:bg-gray-100"
+            >
+              Book Appointment
+            </CTAButton>
+            <CTAButton
+              href="tel:+2349025301696"
+              variant="secondary"
+              className="border-white text-white hover:bg-white/10 flex items-center gap-2"
+            >
+              <FaPhoneAlt /> Call Now
+            </CTAButton>
           </div>
         </div>
       </section>

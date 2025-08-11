@@ -15,15 +15,24 @@ export interface Service {
   description: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
   cng: boolean;
+  category:
+    | "maintenance"
+    | "diagnostics"
+    | "conversion"
+    | "repair"
+    | "inspection"
+    | "errand"
+    | "delivery";
 }
 
-export const services = [
+export const services: readonly Service[] = [
   {
     id: "preventive",
     title: "Preventive Maintenance",
     description: "Regular check-ups to keep your vehicle running smoothly...",
     icon: FaTools,
     cng: false,
+    category: "maintenance",
   },
   {
     id: "diagnostics",
@@ -31,6 +40,7 @@ export const services = [
     description: "State-of-the-art diagnostic tools...",
     icon: FaCarBattery,
     cng: false,
+    category: "diagnostics",
   },
   {
     id: "oil",
@@ -38,6 +48,7 @@ export const services = [
     description: "High-quality oil and filter replacements...",
     icon: FaOilCan,
     cng: false,
+    category: "maintenance",
   },
   {
     id: "cng",
@@ -45,6 +56,7 @@ export const services = [
     description: "Professional CNG installation...",
     icon: FaCar,
     cng: true,
+    category: "conversion",
   },
   {
     id: "body",
@@ -52,6 +64,7 @@ export const services = [
     description: "Expert collision repair...",
     icon: FaCarCrash,
     cng: false,
+    category: "repair",
   },
   {
     id: "inspection",
@@ -59,6 +72,7 @@ export const services = [
     description: "Comprehensive vehicle inspection...",
     icon: FaCar,
     cng: false,
+    category: "inspection",
   },
   {
     id: "errand",
@@ -66,6 +80,7 @@ export const services = [
     description: "Let us handle your vehicle-related errands and paperwork...",
     icon: FaRunning,
     cng: false,
+    category: "errand",
   },
   {
     id: "delivery",
@@ -74,6 +89,7 @@ export const services = [
       "Convenient pickup and delivery for your vehicle service needs...",
     icon: FaShoppingBag,
     cng: false,
+    category: "delivery",
   },
 ] as const;
 
