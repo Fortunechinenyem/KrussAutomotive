@@ -49,7 +49,7 @@ const AboutPage = () => {
     {
       name: "Joshua Ayodeji Aribido",
       role: "Founder & CEO",
-      bio: "Automotive industry veteran with 20+ years experience in vehicle service and technology integration.",
+      bio: "Automotive industry veteran with 7+ years experience in vehicle service and technology integration.",
       image: "/images/team-1.jpg",
     },
     {

@@ -1,7 +1,7 @@
 const StatsSection = () => {
   return (
     <section className="bg-[#e6edf7] rounded-xl p-12 my-20 container mx-auto">
-      <h2 className="text-3xl font-bold text-[#0c4187] mb-2 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
         By The Numbers
       </h2>
       <div className="border-b-4 border-[#2cbbd4] w-20 mx-auto mb-12"></div>

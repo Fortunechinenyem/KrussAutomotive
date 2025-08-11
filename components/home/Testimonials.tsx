@@ -5,7 +5,7 @@ const Testimonials = () => {
   return (
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-[#0c4187] mb-2 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
           What Our Customers Say
         </h2>
         <div className="border-b-4 border-[#2cbbd4] w-20 mx-auto mb-12"></div>
