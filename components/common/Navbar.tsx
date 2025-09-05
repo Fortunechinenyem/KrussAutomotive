@@ -19,15 +19,15 @@ const Navbar = () => {
       submenu: [
         {
           name: "Preventive Maintenance",
-          path: "/services/detail?id=preventive",
+          path: "/services/preventive",
         },
         {
           name: "Auto-Errand",
-          path: "/services/detail?id=errand",
+          path: "/services/errand",
         },
-        { name: "CNG Conversion", path: "/services/detail?id=cng" },
-        { name: "Diagnostics", path: "/services/detail?id=diagnostics" },
-        { name: "Body Repair", path: "/services/detail?id=body" },
+        { name: "CNG Conversion", path: "/services/cng" },
+        { name: "Diagnostics", path: "/services/diagnostics" },
+        { name: "Body Repair", path: "/services/body" },
       ],
     },
     { name: "About", path: "/about" },

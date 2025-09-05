@@ -237,7 +237,10 @@ const ServicesGrid = () => {
         {services.some((s) => s.cng) && (
           <div className="mt-16 bg-gradient-to-r from-[#0c4187] to-[#2cbbd4] rounded-2xl p-8 text-white overflow-hidden relative">
             {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[url('/images/carbon-fibre-pattern.jpg')]"></div>
+            <div
+              className="absolute inset-0 opacity-10 bg-[url('/images/carbon-fiber
+            -pattern.jpg')]"
+            ></div>
 
             <div className="flex flex-col md:flex-row items-center relative z-10">
               <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
