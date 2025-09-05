@@ -319,7 +319,7 @@ export default function Services() {
   ];
 
   const stats: Stat[] = [
-    { number: "500+", label: "Happy Clients", icon: <FaUsers /> },
+    { number: "100 +", label: "Happy Clients", icon: <FaUsers /> },
     { number: "98%", label: "Satisfaction Rate", icon: <FaAward /> },
     { number: "24/7", label: "Support", icon: <FaClock /> },
     { number: "7+", label: "Years Experience", icon: <FaCog /> },

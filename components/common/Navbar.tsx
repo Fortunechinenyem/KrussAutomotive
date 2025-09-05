@@ -25,7 +25,7 @@ const Navbar = () => {
           name: "Auto-Errand",
           path: "/services/errand",
         },
-        { name: "CNG Conversion", path: "/services/cng" },
+        { name: "CNG Services", path: "/services/cng" },
         { name: "Diagnostics", path: "/services/diagnostics" },
         { name: "Body Repair", path: "/services/body" },
       ],

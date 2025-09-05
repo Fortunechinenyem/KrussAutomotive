@@ -5,12 +5,8 @@ export type InspectionStatus =
   | "approved"
   | "rejected";
 
-export type ConditionStatus =
-  | "excellent"
-  | "good"
-  | "fair"
-  | "poor"
-  | "needs_attention";
+export type ConditionStatus = "excellent" | "good" | "fair" | "poor";
+// Removed "needs_attention" to match your component's conditionOptions
 
 // Then define interfaces that use them
 export interface InspectionItem {
@@ -22,6 +18,10 @@ export interface InspectionItem {
 export interface Inspection {
   id: string;
   vehicleId: string;
+  vehicleMake: string; // Added to match your component
+  vehicleModel: string; // Added to match your component
+  vehicleYear?: number; // Added to match your component
+  vin?: string; // Made optional to match your component
   technicianId: string;
   status: InspectionStatus;
   overallCondition: ConditionStatus;
@@ -52,7 +52,8 @@ export interface Inspection {
     exhaust: InspectionItem;
   };
 
-  testDrive?: {
+  testDrive: {
+    // Made non-optional to match your component
     acceleration: InspectionItem;
     braking: InspectionItem;
     steering: InspectionItem;

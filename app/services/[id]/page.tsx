@@ -145,7 +145,7 @@ export default function ServiceDetailPage() {
           icon: <FaStar className="text-2xl" />,
         },
         {
-          value: "500+",
+          value: "100 +",
           label: "Systems Scanned",
           icon: <FaCarBattery className="text-2xl" />,
         },
@@ -239,7 +239,7 @@ export default function ServiceDetailPage() {
         },
       ],
       icon: <FaCar className="text-[#2cbbd4] text-6xl mb-6" />,
-      image: "/images/c1.png",
+      image: "/images/cng-pic.jpg",
     },
     body: {
       features: [
@@ -277,7 +277,7 @@ export default function ServiceDetailPage() {
           icon: <FaShieldAlt className="text-2xl" />,
         },
         {
-          value: "500+",
+          value: "100 +",
           label: "Repairs Done",
           icon: <FaCarCrash className="text-2xl" />,
         },
@@ -409,7 +409,7 @@ export default function ServiceDetailPage() {
           icon: <FaShieldAlt className="text-2xl" />,
         },
         {
-          value: "500+",
+          value: "100 +",
           label: "Deliveries",
           icon: <FaShoppingBag className="text-2xl" />,
         },

@@ -8,13 +8,25 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import Link from "next/link";
 import CTAButton from "@/components/common/CTAButton";
-import { FaPhoneAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaChevronDown,
+  FaChevronUp,
+  FaSearch,
+  FaClipboardList,
+  FaLock,
+  FaClock,
+  FaFileAlt,
+  FaShieldAlt,
+  FaRocket,
+} from "react-icons/fa";
 import CTA from "@/components/home/CTA";
 
 export default function Home() {
   const [user] = useAuthState(auth);
   const [isTechnician, setIsTechnician] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -59,6 +71,13 @@ export default function Home() {
     },
   ];
 
+  // Filter FAQs based on search term
+  const filteredFaqs = faqs.filter(
+    (faq) =>
+      faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <main>
       <HeroSection />
@@ -66,151 +85,237 @@ export default function Home() {
       <ServicesGrid />
       <Testimonials />
 
-      <section className="py-16 bg-[#e6edf7]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-[#0c4187]/80 max-w-2xl mx-auto">
-              Find answers to common questions about our services and processes
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="mb-4 border border-gray-200 rounded-lg overflow-hidden"
-              >
-                <button
-                  className={`w-full flex justify-between items-center p-6 text-left ${
-                    activeIndex === index ? "bg-[#e6edf7]" : "bg-white"
-                  }`}
-                  onClick={() => toggleFAQ(index)}
-                >
-                  <h3 className="text-lg font-medium text-[#0c4187]">
-                    {faq.question}
-                  </h3>
-                  {activeIndex === index ? (
-                    <FaChevronUp className="text-[#2cbbd4]" />
-                  ) : (
-                    <FaChevronDown className="text-[#2cbbd4]" />
-                  )}
-                </button>
-                {activeIndex === index && (
-                  <div className="p-6 bg-white text-gray-600 border-t border-gray-100">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-blue-700 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-cyan-600 rounded-full opacity-20 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-blue-800 rounded-full opacity-10 animate-pulse delay-500"></div>
         </div>
-      </section>
 
-      <section className="bg-gradient-to-b from-white to-blue-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-medium mb-5 shadow-sm">
-              For Technicians
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium mb-5 shadow-lg">
+              <FaLock className="w-3 h-3" />
+              Secure Technician Portal
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0c4187] mb-4">
-              Professional Inspection Portal
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Professional{" "}
+              <span className="text-cyan-400">Inspection Portal</span>
             </h2>
 
-            <p className="text-lg text-gray-600 mb-10">
-              Streamline your workflow with dedicated tools, smart reporting,
-              and secure storage — all in one place.
+            <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
+              Advanced tools for automotive professionals to streamline
+              inspections, generate detailed reports, and enhance workflow
+              efficiency.
             </p>
 
-            <div className="flex justify-center mb-16">
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
               <Link
-                href="/auth/signup"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2cbbd4] to-[#2395a9] hover:from-[#2395a9] hover:to-[#1a7687] text-white font-semibold px-7 py-3 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105"
+                href={user ? "/technician-portal" : "/auth/signup"}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
               >
-                Access Inspection Portal
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                {user ? "Go to Portal" : "Get Started"}
+                <FaRocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
+
+              {!user && (
+                <Link
+                  href="/auth/login"
+                  className="inline-flex items-center gap-2 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
 
-          {/* Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Digital Reports",
-                desc: "Create professional, standardized inspection reports in minutes.",
-                icon: (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                ),
+                title: "Digital Inspection Reports",
+                desc: "Create professional, standardized inspection reports with our intuitive digital forms.",
+                icon: <FaFileAlt className="w-8 h-8" />,
+                color: "from-cyan-500 to-blue-600",
               },
               {
                 title: "Efficient Workflow",
-                desc: "Complete inspections faster with our intuitive, technician-friendly tools.",
-                icon: (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                ),
+                desc: "Complete inspections 40% faster with our technician-optimized interface and templates.",
+                icon: <FaClock className="w-8 h-8" />,
+                color: "from-emerald-500 to-green-600",
               },
               {
-                title: "Secure Storage",
-                desc: "Your inspection data is protected with top-grade encryption and auto-backups.",
-                icon: (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                ),
+                title: "Secure Data Storage",
+                desc: "All inspection data is protected with enterprise-grade encryption and automatic backups.",
+                icon: <FaShieldAlt className="w-8 h-8" />,
+                color: "from-violet-500 to-purple-600",
+              },
+              {
+                title: "Template Library",
+                desc: "Access a comprehensive library of inspection templates for all vehicle types and services.",
+                icon: <FaClipboardList className="w-8 h-8" />,
+                color: "from-amber-500 to-orange-600",
+              },
+              {
+                title: "Real-time Collaboration",
+                desc: "Share reports instantly with team members and customers for faster approvals.",
+                icon: <FaRocket className="w-8 h-8" />,
+                color: "from-rose-500 to-pink-600",
+              },
+              {
+                title: "Mobile Accessibility",
+                desc: "Access the portal from any device with full functionality on tablets and smartphones.",
+                icon: <FaLock className="w-8 h-8" />,
+                color: "from-blue-500 to-indigo-600",
               },
             ].map((feature, idx) => (
               <div
                 key={idx}
-                className="p-8 bg-white rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-5 shadow-inner">
-                  <svg
-                    className="w-7 h-7 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {feature.icon}
-                  </svg>
+                <div
+                  className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="text-white">{feature.icon}</div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-white mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <p className="text-blue-100">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Stats Section */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { value: "100 +", label: "Active Technicians" },
+              { value: "15K+", label: "Monthly Inspections" },
+              { value: "98%", label: "Satisfaction Rate" },
+              { value: "40%", label: "Time Saved" },
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10"
+              >
+                <div className="text-3xl font-bold text-cyan-400 mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-blue-100 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-200 rounded-full opacity-20 blur-xl"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0c4187] mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[#0c4187]/80 max-w-2xl mx-auto">
+              Everything you need to know about our services and processes
+            </p>
+
+            {/* Search bar */}
+            <div className="max-w-md mx-auto mt-8 relative">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search questions..."
+                  className="w-full px-5 py-4 pr-12 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2cbbd4] shadow-sm"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {filteredFaqs.length > 0 ? (
+              filteredFaqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="mb-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                >
+                  <button
+                    className={`w-full flex justify-between items-center p-6 text-left ${
+                      activeIndex === index
+                        ? "bg-gradient-to-r from-blue-50 to-indigo-50"
+                        : "bg-white"
+                    }`}
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h3 className="text-lg font-semibold text-[#0c4187] pr-4">
+                      {faq.question}
+                    </h3>
+                    {activeIndex === index ? (
+                      <FaChevronUp className="text-[#2cbbd4] flex-shrink-0" />
+                    ) : (
+                      <FaChevronDown className="text-[#2cbbd4] flex-shrink-0" />
+                    )}
+                  </button>
+                  {activeIndex === index && (
+                    <div className="p-6 bg-white text-gray-700 border-t border-gray-100 animate-fadeIn">
+                      <div className="flex">
+                        <div className="flex-shrink-0 mr-4 mt-1">
+                          <div className="w-2 h-2 bg-[#2cbbd4] rounded-full"></div>
+                        </div>
+                        <p>{faq.answer}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              <div className="text-center py-12 bg-white rounded-2xl shadow-lg">
+                <div className="text-5xl text-gray-300 mb-4">?</div>
+                <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                  No results found
+                </h3>
+                <p className="text-gray-500">
+                  Try different search terms or browse all questions
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Support CTA */}
+          <div className="mt-16 text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-[#0c4187] mb-4">
+                Still have questions?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Our team is here to help you with any inquiries
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a
+                  href="tel:+1234567890"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2cbbd4] to-[#2395a9] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all"
+                >
+                  <FaPhoneAlt className="w-4 h-4" />
+                  Call Support
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-[#2cbbd4] text-[#2cbbd4] font-semibold px-6 py-3 rounded-lg hover:bg-[#2cbbd4] hover:text-white transition-all"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CTA />
     </main>
   );

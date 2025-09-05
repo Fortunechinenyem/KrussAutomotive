@@ -44,7 +44,7 @@ const CTA = () => {
               {[
                 {
                   icon: <FaStar className="text-2xl text-[#2cbbd4]" />,
-                  value: "500+",
+                  value: "100 +",
                   label: "Happy Clients",
                 },
                 {
