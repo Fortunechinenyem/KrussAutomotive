@@ -1,4 +1,8 @@
 "use client";
+import { Inter } from "next/font/google";
+import "../../../styles/globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 import { ReactNode } from "react";
 
