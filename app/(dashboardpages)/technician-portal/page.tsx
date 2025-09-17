@@ -35,7 +35,6 @@ import {
   Legend,
 } from "chart.js";
 
-// Import types
 import {
   InspectionReport as InspectionReportType,
   Stats,
@@ -79,8 +78,7 @@ export default function TechnicianPortal() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [notifications, setNotifications] = useState(3);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Start with closed sidebar on mobile
   const router = useRouter();
 
   // Fetch user data and reports
@@ -269,26 +267,31 @@ export default function TechnicianPortal() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* Sidebar */}
-      <Sidebar
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        handleSignOut={handleSignOut}
-      />
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
+      {/* Sidebar for desktop - always visible */}
+      <div className="hidden lg:block lg:w-64 flex-shrink-0">
+        <Sidebar
+          isSidebarOpen={true} // Always open on desktop
+          setIsSidebarOpen={setIsSidebarOpen}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          handleSignOut={handleSignOut}
+        />
+      </div>
 
-      {/* Mobile sidebar backdrop */}
-      {isMobileSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
-          onClick={() => setIsMobileSidebarOpen(false)}
-        ></div>
-      )}
+      {/* Mobile sidebar */}
+      <div className="lg:hidden">
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          handleSignOut={handleSignOut}
+        />
+      </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <Header
           activeTab={activeTab}
@@ -296,17 +299,17 @@ export default function TechnicianPortal() {
           setIsProfileDropdownOpen={setIsProfileDropdownOpen}
           notifications={notifications}
           user={user}
-          setIsMobileSidebarOpen={setIsMobileSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
         />
 
         {/* Main Content Area */}
-        <main className="p-6">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6">
           {/* Dashboard Tab */}
           {activeTab === "dashboard" && (
             <>
               {/* Welcome Header */}
-              <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">
+              <div className="mb-6 md:mb-8">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                   Welcome back, {user?.displayName || "Technician"}!
                 </h1>
                 <p className="text-gray-600">
@@ -317,7 +320,7 @@ export default function TechnicianPortal() {
               {/* Stats Cards */}
               <StatsCards stats={stats} />
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 {/* Recent Reports */}
                 <div className="lg:col-span-2">
                   <RecentReports
@@ -330,20 +333,20 @@ export default function TechnicianPortal() {
                 </div>
 
                 {/* Quick Actions & New Inspection */}
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   {/* Quick Actions */}
                   <QuickActions />
 
                   {/* New Inspection Card */}
-                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 text-white">
-                    <h2 className="text-xl font-semibold mb-3">
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl shadow-lg p-4 md:p-6 text-white">
+                    <h2 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">
                       Start New Inspection
                     </h2>
-                    <p className="text-blue-100 mb-4">
+                    <p className="text-blue-100 mb-3 md:mb-4 text-sm md:text-base">
                       Create a comprehensive vehicle inspection report with our
                       digital form.
                     </p>
-                    <button className="w-full bg-white text-blue-600 font-semibold py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
+                    <button className="w-full bg-white text-blue-600 font-semibold py-2 md:py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
                       <FaPlusCircle />
                       New Inspection
                     </button>
@@ -363,7 +366,7 @@ export default function TechnicianPortal() {
           )}
 
           {activeTab === "inspections" && (
-            <div className="mt-6">
+            <div className="mt-4 md:mt-6">
               <InspectionReport />
             </div>
           )}
@@ -372,7 +375,7 @@ export default function TechnicianPortal() {
           {(activeTab === "history" ||
             activeTab === "schedule" ||
             activeTab === "profile") && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 text-center">
               <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
                 {activeTab === "history" && (
                   <FaHistory className="text-2xl text-gray-400" />

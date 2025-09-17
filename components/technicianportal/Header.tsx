@@ -1,3 +1,4 @@
+// components/technicianportal/Header.tsx
 "use client";
 import {
   FaBell,
@@ -15,7 +16,7 @@ interface HeaderProps {
   setIsProfileDropdownOpen: (open: boolean) => void;
   notifications: number;
   user: User | null | undefined;
-  setIsMobileSidebarOpen: (open: boolean) => void;
+  setIsSidebarOpen: (open: boolean) => void;
 }
 
 const Header = ({
@@ -24,15 +25,15 @@ const Header = ({
   setIsProfileDropdownOpen,
   notifications,
   user,
-  setIsMobileSidebarOpen,
+  setIsSidebarOpen,
 }: HeaderProps) => {
   return (
-    <header className="bg-white shadow-sm border-b sticky top-0 z-10">
+    <header className="bg-white shadow-sm border-b sticky top-0 z-30">
       <div className="px-4 py-3 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <button
-            className="md:hidden text-gray-500"
-            onClick={() => setIsMobileSidebarOpen(true)}
+            className="lg:hidden text-gray-500"
+            onClick={() => setIsSidebarOpen(true)}
           >
             <FaBars className="text-xl" />
           </button>
@@ -86,7 +87,7 @@ const Header = ({
             </button>
 
             {isProfileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 border border-gray-200">
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-40 border border-gray-200">
                 <div className="px-4 py-2 border-b border-gray-100">
                   <p className="text-sm font-medium text-gray-800">
                     {user?.displayName || "Technician"}

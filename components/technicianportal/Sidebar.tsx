@@ -1,3 +1,4 @@
+// components/technicianportal/Sidebar.tsx
 "use client";
 import {
   FaTimes,
@@ -8,6 +9,7 @@ import {
   FaCalendarAlt,
   FaUser,
   FaSignOutAlt,
+  FaCar,
 } from "react-icons/fa";
 
 interface SidebarProps {
@@ -36,25 +38,33 @@ const Sidebar = ({
 
   return (
     <>
-      {/* Overlay */}
+      {/* Overlay for mobile */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/30 z-10 md:hidden"
+          className="fixed inset-0 bg-black/30 z-30 lg:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-20 transform transition-transform duration-300 
-        ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ease-in-out
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+          lg:translate-x-0 lg:static lg:z-auto`}
       >
-        {/* Header for mobile */}
-        <div className="flex justify-between items-center p-4 border-b md:hidden">
-          <h2 className="font-semibold text-lg">Menu</h2>
-          <button onClick={() => setIsSidebarOpen(false)}>
+        {/* Logo/Brand */}
+        <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex items-center gap-3">
+            <div className="bg-blue-600 p-2 rounded-lg">
+              <FaCar className="text-white text-xl" />
+            </div>
+            <h1 className="text-xl font-bold text-gray-800">
+              Kruss <span className="text-blue-600">Auto</span>
+            </h1>
+          </div>
+
+          {/* Close button for mobile */}
+          <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden">
             <FaTimes className="text-xl text-gray-600 hover:text-gray-900" />
           </button>
         </div>
@@ -64,25 +74,25 @@ const Sidebar = ({
           {navItems.map((item) => (
             <button
               key={item.id}
-              className={`flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${
                 activeTab === item.id
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-100 text-blue-700 border-r-4 border-blue-600"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
               onClick={() => {
                 setActiveTab(item.id);
-                setIsSidebarOpen(false);
+                setIsSidebarOpen(false); // Close sidebar on mobile after selection
               }}
             >
-              {item.icon}
-              {item.label}
+              <span className="text-lg">{item.icon}</span>
+              <span>{item.label}</span>
             </button>
           ))}
 
           {/* Sign Out */}
           <button
             onClick={handleSignOut}
-            className="flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg font-medium text-red-600 hover:bg-red-50"
+            className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg font-medium text-red-600 hover:bg-red-50 mt-4"
           >
             <FaSignOutAlt />
             Sign Out
