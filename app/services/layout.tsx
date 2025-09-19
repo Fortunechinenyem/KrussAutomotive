@@ -92,9 +92,7 @@ export default function RootLayout({
         <Navbar />
         <main>
           {children}
-          {process.env.NEXT_PUBLIC_GA_ID && (
-            <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_ID} />
-          )}
+          <GoogleAnalytics />
         </main>
         <Footer />
       </body>

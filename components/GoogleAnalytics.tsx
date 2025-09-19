@@ -10,23 +10,20 @@ declare global {
   }
 }
 
-export default function GoogleAnalytics({
-  measurementId,
-}: {
-  measurementId: string;
-}) {
+export default function GoogleAnalytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const measurementId = process.env.NEXT_PUBLIC_GA_ID || "";
 
   // Fire a pageview when the route changes
   useEffect(() => {
-    if (!measurementId) return;
+    if (!measurementId || !window.gtag) return;
 
     const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
-    window.gtag?.("event", "page_view", {
-      page_path: url,
-    });
+    window.gtag("event", "page_view", { page_path: url });
   }, [pathname, searchParams, measurementId]);
+
+  if (!measurementId) return null;
 
   return (
     <>
@@ -41,7 +38,7 @@ export default function GoogleAnalytics({
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${measurementId}', { send_page_view: false });
+          gtag('config', '${measurementId}', { send_page_view: true });
         `}
       </Script>
     </>
