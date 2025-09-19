@@ -5,6 +5,7 @@ import "../../../styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 import { ReactNode } from "react";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export default function TechnicianLayout({
   children,
@@ -15,7 +16,10 @@ export default function TechnicianLayout({
     <html lang="en">
       <body className="">
         {/* Technician-specific wrapper */}
-        <div className="technician-portal">{children}</div>
+        <div className="technician-portal">
+          {children}
+          <GoogleAnalytics />
+        </div>
       </body>
     </html>
   );
